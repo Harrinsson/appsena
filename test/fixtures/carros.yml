@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_Propietario: 1
+  marca: MyString
+  matricula: MyString
+  color: MyString
+
+two:
+  id_Propietario: 1
+  marca: MyString
+  matricula: MyString
+  color: MyString

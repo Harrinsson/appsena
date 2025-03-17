@@ -1,0 +1,11 @@
+<% content_for :title, "New moto" %>
+
+<h1>New moto</h1>
+
+<%= render "form", moto: @moto %>
+
+<br>
+
+<div>
+  <%= link_to "Back to motos", motos_path %>
+</div>

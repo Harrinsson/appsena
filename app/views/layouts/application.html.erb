@@ -23,6 +23,25 @@
   </head>
 
   <body>
-    <%= yield %>
+  <aside>
+        <h2>Menú</h2>
+        <nav>
+            <ul>
+                <li><span class="icono">🏠</span><span class="texto"><%= link_to "Inicio", motos_path %></span></li>
+                <li><a href="#"><span class="icono">🛠</span><span class="texto">Servicios</span></a></li>
+                <li><a href="#"><span class="icono">📞</span><span class="texto">Contacto</span></a></li>
+                <li><span class="icono">🏠</span><span class="texto"><%= link_to "Inicio", carros_path %></span></li>
+            </ul>
+        </nav>
+    </aside>
+    <header>
+        <h1>Título de la Página</h1>
+    </header>
+    <main>
+        <%= yield %>
+    </main>
+    <footer>
+        <p>Pie de página</p>
+    </footer>
   </body>
 </html>
