@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :user
   root to: "home#welcome"
   get "up" => "rails/health#show", as: :rails_health_check
+  
   get "carros/:id_carro" => "carros#carros", as: :carros
   get "home" => "home#welcome", as: :welcome
   resources :motos
