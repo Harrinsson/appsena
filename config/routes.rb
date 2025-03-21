@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   devise_for :user
   root to: "home#welcome"
   get "up" => "rails/health#show", as: :rails_health_check
-  
   get "carros/:id_carro" => "carros#carros", as: :carros
+  get "carros2" => "carros#carros2", as: :carros2
   get "home" => "home#welcome", as: :welcome
   resources :motos
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
