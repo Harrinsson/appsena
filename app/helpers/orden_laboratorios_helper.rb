@@ -1,0 +1,2 @@
+module OrdenLaboratoriosHelper
+end

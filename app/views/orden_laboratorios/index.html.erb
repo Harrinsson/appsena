@@ -1,0 +1,53 @@
+<h1>Órdenes de laboratorio</h1>
+
+<%= form_with url: orden_laboratorios_path, method: :get, local: true do |f| %>
+  <div>
+    <%= label_tag :numero_orden, "Número de orden" %>
+    <%= text_field_tag :numero_orden, params[:numero_orden] %>
+  </div>
+
+  <div>
+    <%= label_tag :fecha_inicio, "Fecha inicio" %>
+    <%= date_field_tag :fecha_inicio, params[:fecha_inicio] %>
+  </div>
+
+  <div>
+    <%= label_tag :fecha_fin, "Fecha fin" %>
+    <%= date_field_tag :fecha_fin, params[:fecha_fin] %>
+  </div>
+
+  <div>
+    <%= label_tag :orden, "Ordenar por fecha" %>
+    <%= select_tag :orden, options_for_select([["Descendente", "desc"], ["Ascendente", "asc"]], selected: params[:orden]) %>
+  </div>
+
+  <div>
+    <%= submit_tag "Filtrar" %>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha de la orden</th>
+      <th>Código del documento</th>
+      <th>Número de orden</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ordenes.each do |orden| %>
+      <tr>
+        <td><%= orden.fecha_orden %></td>
+        <td><%= orden.codigo_documento %></td>
+        <td><%= orden.numero_orden %></td>
+        <td><%= link_to "Ver detalles", orden_laboratorio_path(orden) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div>
+  <%= paginate @ordenes %>
+</div>

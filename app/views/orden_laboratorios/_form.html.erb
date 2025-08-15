@@ -1,0 +1,37 @@
+<%= form_with(model: orden_laboratorio) do |form| %>
+  <% if orden_laboratorio.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(orden_laboratorio.errors.count, "error") %> prohibited this orden_laboratorio from being saved:</h2>
+
+      <ul>
+        <% orden_laboratorio.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :paciente_id, style: "display: block" %>
+    <%= form.text_field :paciente_id %>
+  </div>
+
+  <div>
+    <%= form.label :fecha_orden, style: "display: block" %>
+    <%= form.date_field :fecha_orden %>
+  </div>
+
+  <div>
+    <%= form.label :codigo_documento, style: "display: block" %>
+    <%= form.text_field :codigo_documento %>
+  </div>
+
+  <div>
+    <%= form.label :numero_orden, style: "display: block" %>
+    <%= form.text_field :numero_orden %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_19_212322) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_15_160815) do
   create_table "carros", force: :cascade do |t|
     t.integer "id_Propietario"
     t.string "marca"
@@ -29,6 +29,29 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_19_212322) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orden_laboratorios", force: :cascade do |t|
+    t.integer "paciente_id", null: false
+    t.date "fecha_orden"
+    t.string "codigo_documento"
+    t.string "numero_orden"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["paciente_id"], name: "index_orden_laboratorios_on_paciente_id"
+  end
+
+  create_table "pacientes", force: :cascade do |t|
+    t.string "tipoid"
+    t.string "identificacion"
+    t.string "nombre"
+    t.date "fechanacido"
+    t.string "sexo"
+    t.string "direccion"
+    t.string "telefono"
+    t.string "correo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -40,4 +63,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_19_212322) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "orden_laboratorios", "pacientes"
 end

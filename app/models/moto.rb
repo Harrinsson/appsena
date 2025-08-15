@@ -1,2 +1,0 @@
-class Moto < ApplicationRecord
-end

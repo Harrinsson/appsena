@@ -1,0 +1,28 @@
+<div class="login-wrapper">
+  <h1 class="login-title">Iniciar sesión</h1>
+
+  <% if flash[:alert] %>
+    <p class="login-alert"><%= flash[:alert] %></p>
+  <% end %>
+
+  <%= form_with url: login_path, method: :post, local: true, html: { class: "login-form" } do %>
+    <div class="login-field">
+      <%= label_tag :tipoid, "Tipo de identificación", class: "login-label" %>
+      <%= select_tag :tipoid, options_for_select(['CC', 'TI']), prompt: "Seleccione", class: "login-input" %>
+    </div>
+
+    <div class="login-field">
+      <%= label_tag :identificacion, "Número de identificación", class: "login-label" %>
+      <%= text_field_tag :identificacion, nil, class: "login-input" %>
+    </div>
+
+    <div class="login-field">
+      <%= label_tag :fechanacido, "Fecha de nacimiento", class: "login-label" %>
+      <%= date_field_tag :fechanacido, nil, class: "login-input" %>
+    </div>
+
+    <div class="login-button-wrapper">
+      <%= submit_tag "Iniciar sesión", class: "login-button" %>
+    </div>
+  <% end %>
+</div>

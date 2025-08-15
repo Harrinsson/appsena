@@ -1,0 +1,10 @@
+<div class="home-container">
+  <h1>¡Bienvenido, <%= current_paciente.nombre %>!</h1>
+
+  <p>¿Qué deseas hacer?</p>
+
+  <div class="home-options">
+    <%= link_to "Ver mi perfil", perfil_path, class: "home-button" %>
+    <%= link_to "Ver órdenes de laboratorio", orden_laboratorios_path, class: "home-button" %>
+  </div>
+</div>
